@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 
 namespace DataVisulisation
@@ -10,13 +7,13 @@ namespace DataVisulisation
     {
         public static Color PixelAverage(Bitmap Bmp, Point P, int AvgAreaRadius = 1, float CenterMultiplyer = 1f)
         {
-            int[] PixelChannelTotals = new int[3]; 
+            int[] PixelChannelTotals = new int[3];
             int AreaSize = 0;
             Color Pixel;
             for (int X = P.X - AvgAreaRadius, Y = P.Y - AvgAreaRadius; Y <= P.Y + AvgAreaRadius; X++)
             {
-                if (X >= 0 && X < Bmp.Width && Y >= 0 && Y < Bmp.Height) 
-                { 
+                if (X >= 0 && X < Bmp.Width && Y >= 0 && Y < Bmp.Height)
+                {
                     Pixel = Bmp.GetPixel(X, Y);
                     if (X == P.X && Y == P.Y)
                     {
@@ -37,7 +34,7 @@ namespace DataVisulisation
             PixelChannelTotals[0] /= AreaSize;
             PixelChannelTotals[1] /= AreaSize;
             PixelChannelTotals[2] /= AreaSize;
-            for (int i = 0;i<3;i++) { if (PixelChannelTotals[i] > 255) { PixelChannelTotals[i] = 255; } }
+            for (int i = 0; i < 3; i++) { if (PixelChannelTotals[i] > 255) { PixelChannelTotals[i] = 255; } }
             return Color.FromArgb(PixelChannelTotals[0], PixelChannelTotals[1], PixelChannelTotals[2]);
         }
     }
