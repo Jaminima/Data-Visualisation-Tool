@@ -13,7 +13,9 @@ namespace TestApp
         {
             Bitmap Bmp = BitMapHandling.CreateNew();
             BitMapHandling.SetBackColor(ref Bmp, Color.Gray);
-            BitMapHandling.DrawLine(ref Bmp, new Point(10, 10), new Point(600, 400), Color.Red);
+            BitMapHandling.DrawLine(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, 10, 10), BitMapHandling.PointRelativeToOrigin(Bmp, 300, 500), Color.Black, 2);
+            BitMapHandling.DrawLine(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, 300, 500), BitMapHandling.PointRelativeToOrigin(Bmp, 500, 350), Color.Black, 2);
+            BitMapManipulation.ApplyAA(ref Bmp);
             Bmp.Save("./out.png");
         }
     }
