@@ -31,13 +31,15 @@ namespace DataVisulisation
             int xDirection = Math.Sign(P2.X - P1.X), yDirection = Math.Sign(P1.Y-P2.Y);
             float Gradient = (float)yChange / xChange * yDirection;
             bool GradientIsVertical = Gradient % 2 <= 1;
-            for (int x = P1.X; x != P2.X; x += xDirection)
+            for (int x = P1.X; x != P2.X && GradientIsVertical; x += xDirection)
             {
-                int y = P1.Y - (int)Math.Round((x - P1.X) * Gradient, 0);
-                if (GradientIsVertical) {
-                    for(int i = 0; i < Thiccness && x + i < Bmp.Width; i++) { SetPixel(ref Bmp, new Point(x + i, y), LineColor); } }
-                else {
-                    for (int i = 0; i < Thiccness && y + i < Bmp.Height; i++) { SetPixel(ref Bmp, new Point(x, y + i), LineColor); } }
+                int y = P1.Y - (int)Math.Round(Math.Abs(x - P1.X) * Gradient, 0);
+                for (int i = 0; i + y < Bmp.Height && i < Thiccness;i++) SetPixel(ref Bmp, new Point(x, y + i), LineColor);
+            }
+            for (int y = P1.Y; y!=P2.Y && !GradientIsVertical; y -= yDirection)
+            {
+                int x = P1.X + (int)Math.Round(Math.Abs(P1.Y - y) / Gradient, 0);
+                for (int i = 0; i + x < Bmp.Width && i < Thiccness; i++) { SetPixel(ref Bmp, new Point(x + i, y), LineColor); }
             }
         }
 
