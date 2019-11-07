@@ -45,6 +45,7 @@
     <Compile Include="BitMapAnalysis.cs" />
     <Compile Include="BitMapHandling.cs" />
     <Compile Include="BitMapManipulation.cs" />
+    <Compile Include="LineGraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
