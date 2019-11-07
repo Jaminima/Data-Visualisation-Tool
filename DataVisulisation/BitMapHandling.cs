@@ -57,6 +57,7 @@ namespace DataVisulisation
                 }
                 prevY = y;
             }
+            DT.Dispose();
         }
 
         private static void SetPixel(ref Bitmap Bmp, Point P, Color PixelColor)
