@@ -22,7 +22,7 @@ namespace DataVisulisation
             }
         }
 
-        public static void DrawLine(ref Bitmap Bmp, Point P1, Point P2, Color LineColor, int Thiccness = 1)
+        public static void DrawLine(ref Bitmap Bmp, Point P1, Point P2, Color LineColor, int Thickness = 1)
         {
             int xChange = Math.Abs(P1.X - P2.X), yChange = Math.Abs(P1.Y - P2.Y);
             int xDirection = Math.Sign(P2.X - P1.X), yDirection = Math.Sign(P1.Y - P2.Y);
@@ -32,13 +32,13 @@ namespace DataVisulisation
             for (int x = P1.X; x != P2.X && GradientIsVertical; x += xDirection)
             {
                 int y = P1.Y - (int)Math.Round(Math.Abs(x - P1.X) * Gradient, 0);
-                for (int i = 0; i + y < Bmp.Height && i < Thiccness; i++) SetPixel(ref Bmp, new Point(x, y + i), LineColor);
+                for (int i = 0; i + y < Bmp.Height && i < Thickness; i++) SetPixel(ref Bmp, new Point(x, y + i), LineColor);
             }
 
             for (int y = P1.Y; y != P2.Y && !GradientIsVertical; y -= yDirection)
             {
                 int x = P1.X + (int)Math.Round(Math.Abs(P1.Y - y) / Gradient, 0);
-                for (int i = 0; i + x < Bmp.Width && i < Thiccness; i++) { SetPixel(ref Bmp, new Point(x + i, y), LineColor); }
+                for (int i = 0; i + x < Bmp.Width && i < Thickness; i++) { SetPixel(ref Bmp, new Point(x + i, y), LineColor); }
             }
         }
 
