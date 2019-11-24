@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Collections.Generic;
+using ImitationLibrary;
 
 namespace DataVisulisation
 {
@@ -61,22 +61,189 @@ namespace DataVisulisation
             DT.Dispose();
         }
 
-        static Dictionary<char, bool[,]> LetterMaps = new Dictionary<char, bool[,]>
-        {
-            { 'A', new bool[,] {
+        static Tuple<char, bool[,]>[] LetterMaps = new Tuple<char, bool[,]>[] {
+            new Tuple<char, bool[,]> ('A', new bool[,] {
                 { false, false, true, false, false },
                 { false, true, false, true, false },
                 { false, true, true, true, false },
                 { true, false, false, false, true },
                 { true, false, false, false, true }
-            } },
-            { 'B', new bool[,]{
+            }),
+            new Tuple<char, bool[,]> ('B',new bool[,]{
                 { true, true, true, true, false },
                 { true, false, false, false, true },
                 { true, true, true, true, true },
                 { true, false, false, false, true },
                 { true, true, true, true, false }
-            } }
+            }),
+            new Tuple<char, bool[,]> ('C',new bool[,]{
+                { false, true, true, true, true },
+                { true, false, false, false, false },
+                { true, false, false, false, false },
+                { true, false, false, false, false },
+                { false, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('D',new bool[,]{
+                { true, true, true, true, false },
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('E',new bool[,]{
+                { true, true, true, true, true },
+                { true, false, false, false, false },
+                { true, true, true, true, true },
+                { true, false, false, false, false },
+                { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('F',new bool[,]{
+                { true, true, true, true, true },
+                { true, false, false, false, false },
+                { true, true, true, true, true },
+                { true, false, false, false, false },
+                { true, false, false, false, false }
+            }),
+            new Tuple<char, bool[,]> ('G',new bool[,]{
+                { true, true, true, true, true },
+                { true, false, false, false, false },
+                { true, false, true, true, true },
+                { true, false, false, false, true },
+                { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('H',new bool[,]{
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, true, true, true, true },
+                { true, false, false, false, true },
+                { true, false, false, false, true }
+            }),
+            new Tuple<char, bool[,]> ('I',new bool[,]{
+                { true, true, true, true, true },
+                { false, false, true, false, false },
+                { false, false, true, false, false },
+                { false, false, true, false, false },
+                { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('J',new bool[,]{
+                { true, true, true, true, true },
+                { false, false, false, true, false },
+                { false, false, false, true, false },
+                { false, false, false, true, false },
+                { true, true, true, false, false }
+            }),
+            new Tuple<char, bool[,]> ('K',new bool[,]{
+                { true, false, false, false, true },
+                { true, false, false, true, false },
+                { true, true, true, false, false },
+                { true, false, false, true, false },
+                { true, false, false, false, true }
+            }),
+            new Tuple<char, bool[,]> ('L',new bool[,]{
+                { true, false, false, false, false },
+                { true, false, false, false, false },
+                { true, false, false, false, false },
+                { true, false, false, false, false },
+                { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('M',new bool[,]{
+                { true, false, false, false, true },
+                { true, true, false, true, true },
+                { true, false, true, false, true },
+                { true, false, false, false, true },
+                { true, false, false, false, true }
+            }),
+            new Tuple<char, bool[,]> ('N',new bool[,]{
+                { true, false, false, false, true },
+                { true, true, false, false, true },
+                { true, false, true, false, true },
+                { true, false, false, true, true },
+                { true, false, false, false, true }
+            }),
+            new Tuple<char, bool[,]> ('O',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { false, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('P',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { true, true, true, true, false },
+                { true, false, false, false, false },
+                { true, false, false, false, false }
+            }),
+            new Tuple<char, bool[,]> ('Q',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { true, false, true, false, true },
+                { true, false, false, true, false },
+                { false, true, true, false, true }
+            }),
+            new Tuple<char, bool[,]> ('R',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { true, true, true, true, false },
+                { true, false, false, false, true },
+                { true, false, false, false, true }
+            }),
+            new Tuple<char, bool[,]> ('S',new bool[,]{
+                { false, true, true, true, true },
+                { true, false, false, false, false },
+                { false, true, true, true, false },
+                { false, false, false, false, true },
+                { true, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('T',new bool[,]{
+                { true, true, true, true, true },
+                { false, false, true, false, false },
+                { false, false, true, false, false },
+                { false, false, true, false, false },
+                { false, false, true, false, false }
+            }),
+            new Tuple<char, bool[,]> ('U',new bool[,]{
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { false, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('V',new bool[,]{
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { false, true, false, true, false },
+                { false, true, false, true, false },
+                { false, false, true, false, false }
+            }),
+            new Tuple<char, bool[,]> ('W',new bool[,]{
+                { true, false, false, false, true },
+                { true, false, false, false, true },
+                { true, false, true, false, true },
+                { true, false, true, false, true },
+                { false, true, false, true, false }
+            }),
+            new Tuple<char, bool[,]> ('X',new bool[,]{
+                { true, false, false, false, true },
+                { false, true, false, true, false },
+                { false, false, true, false, false },
+                { false, true, false, true, false },
+                { true, false, false, false, true }
+            }),
+            new Tuple<char, bool[,]> ('Y',new bool[,]{
+                { true, false, false, false, true },
+                { false, true, false, true, false },
+                { false, false, true, false, false },
+                { false, false, true, false, false },
+                { false, false, true, false, false }
+            }),
+            new Tuple<char, bool[,]> ('Z',new bool[,]{
+                { true, true, true, true, true },
+                { false, false, false, true, false },
+                { false, false, true, false, false },
+                { false, true, false, false, false },
+                { true, true, true, true, true }
+            })
         };
 
         public static void DrawText(ref Bitmap Bmp, Point P, string Text, Color color, int FontSize = 1)
@@ -84,16 +251,20 @@ namespace DataVisulisation
             int xOffset = 0;
             foreach (Char C in Text.ToUpper())
             {
-                bool[,] LetterMap = LetterMaps[C];
-                for (int x=0,y=0; x < 5 * FontSize && y < 5*FontSize;)
+                if (Linq.Contains(LetterMaps, x => x.Item1 == C))
                 {
-                    if (LetterMap[y/FontSize, x/FontSize]) {
-                        SetPixel(ref Bmp, new Point(P.X + x + xOffset, P.Y + y), color);
+                    bool[,] LetterMap = Linq.Where(LetterMaps, x => x.Item1 == C)[0].Item2;
+                    for (int x = 0, y = 0; x < 5 * FontSize && y < 5 * FontSize;)
+                    {
+                        if (LetterMap[y / FontSize, x / FontSize])
+                        {
+                            SetPixel(ref Bmp, new Point(P.X + x + xOffset, P.Y + y), color);
+                        }
+                        x++;
+                        if (x == 5 * FontSize) { x = 0; y++; }
                     }
-                    x++;
-                    if (x == 5*FontSize) { x = 0; y++; }
+                    xOffset += 6 * FontSize;
                 }
-                xOffset += 6 * FontSize;
             }
         }
 
