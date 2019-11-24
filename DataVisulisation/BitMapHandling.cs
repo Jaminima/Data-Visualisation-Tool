@@ -265,6 +265,7 @@ namespace DataVisulisation
                     }
                     xOffset += 6 * FontSize;
                 }
+                else if (C==' ') { xOffset += 6 * FontSize; }
             }
         }
 
