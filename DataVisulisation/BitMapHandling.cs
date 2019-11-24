@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace DataVisulisation
 {
@@ -58,6 +59,42 @@ namespace DataVisulisation
                 prevY = y;
             }
             DT.Dispose();
+        }
+
+        static Dictionary<char, bool[,]> LetterMaps = new Dictionary<char, bool[,]>
+        {
+            { 'A', new bool[,] {
+                { false, false, true, false, false },
+                { false, true, false, true, false },
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { true, false, false, false, true }
+            } },
+            { 'B', new bool[,]{
+                { true, true, true, true, false },
+                { true, false, false, false, true },
+                { true, true, true, true, true },
+                { true, false, false, false, true },
+                { true, true, true, true, false }
+            } }
+        };
+
+        public static void DrawText(ref Bitmap Bmp, Point P, string Text, Color color, int FontSize = 1)
+        {
+            int xOffset = 0;
+            foreach (Char C in Text.ToUpper())
+            {
+                bool[,] LetterMap = LetterMaps[C];
+                for (int x=0,y=0; x < 5 * FontSize && y < 5*FontSize;)
+                {
+                    if (LetterMap[y/FontSize, x/FontSize]) {
+                        SetPixel(ref Bmp, new Point(P.X + x + xOffset, P.Y + y), color);
+                    }
+                    x++;
+                    if (x == 5*FontSize) { x = 0; y++; }
+                }
+                xOffset += 6 * FontSize;
+            }
         }
 
         private static void SetPixel(ref Bitmap Bmp, Point P, Color PixelColor)
