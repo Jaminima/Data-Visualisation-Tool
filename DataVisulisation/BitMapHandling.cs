@@ -182,7 +182,7 @@ namespace DataVisulisation
                 { false, true, true, false, true }
             }),
             new Tuple<char, bool[,]> ('R',new bool[,]{
-                { false, true, true, true, false },
+                { true, true, true, true, false },
                 { true, false, false, false, true },
                 { true, true, true, true, false },
                 { true, false, false, false, true },
@@ -246,9 +246,11 @@ namespace DataVisulisation
             })
         };
 
-        public static void DrawText(ref Bitmap Bmp, Point P, string Text, Color color, int FontSize = 1)
+        public static void DrawText(ref Bitmap Bmp, Point P, string Text, Color color, int FontSize = 1, int Align = 1)
         {
             int xOffset = 0;
+            if (Align == -1) { xOffset = - Text.Length * 6 * FontSize; }
+            else if (Align == 0) { xOffset = -Text.Length * 3 * FontSize; }
             foreach (Char C in Text.ToUpper())
             {
                 if (Linq.Contains(LetterMaps, x => x.Item1 == C))
