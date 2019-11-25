@@ -243,6 +243,76 @@ namespace DataVisulisation
                 { false, false, true, false, false },
                 { false, true, false, false, false },
                 { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('0',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, true, true },
+                { true, false, true, false, true },
+                { true, true, false, false, true },
+                { false, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('1',new bool[,]{
+                { false, false, true, false, false },
+                { false, true, true, false, false },
+                { true, false, true, false, false },
+                { false, false, true, false, false },
+                { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('2',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { false, false, true, true, false },
+                { false, true, false, false, false },
+                { true, true, true, true, true }
+            }),
+            new Tuple<char, bool[,]> ('3',new bool[,]{
+                { true, true, true, true, false },
+                { false, false, false, false, true },
+                { true, true, true, true, false },
+                { false, false, false, false, true },
+                { true, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('4',new bool[,]{
+                { false, false, true, true, false },
+                { false, true, false, true, false },
+                { true, true, true, true, true },
+                { false, false, false, true, false },
+                { false, false, false, true, false }
+            }),
+            new Tuple<char, bool[,]> ('5',new bool[,]{
+                { true, true, true, true, true },
+                { true, false, false, false, false },
+                { true, true, true, true, false },
+                { false, false, false, false, true },
+                { true, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('6',new bool[,]{
+                { false, true, true, true, true },
+                { true, false, false, false, false },
+                { true, true, true, true, false },
+                { true, false, false, false, true },
+                { false, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('7',new bool[,]{
+                { true, true, true, true, true },
+                { false, false, false, false, true },
+                { false, false, false, true, false },
+                { false, false, true, false, false },
+                { false, true, false, false, false }
+            }),
+            new Tuple<char, bool[,]> ('8',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { false, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('9',new bool[,]{
+                { false, true, true, true, false },
+                { true, false, false, false, true },
+                { false, true, true, true, true },
+                { false, false, false, false, true },
+                { false, true, true, true, false }
             })
         };
 
