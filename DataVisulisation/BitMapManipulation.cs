@@ -4,6 +4,8 @@ namespace DataVisulisation
 {
     public static class BitMapManipulation
     {
+        #region Methods
+
         public static void ApplyAA(ref Bitmap Bmp, float CenterMultiplyer = 1.1f)
         {
             Bitmap BMPOriginal = (Bitmap)Bmp.Clone();
@@ -14,5 +16,7 @@ namespace DataVisulisation
             }
             BMPOriginal.Dispose();
         }
+
+        #endregion Methods
     }
 }

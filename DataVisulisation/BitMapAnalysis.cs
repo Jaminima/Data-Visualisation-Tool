@@ -5,6 +5,8 @@ namespace DataVisulisation
 {
     public static class BitMapAnalysis
     {
+        #region Methods
+
         public static Color PixelAverage(Bitmap Bmp, Point P, int AvgAreaRadius = 1, float CenterMultiplyer = 1f)
         {
             int[] PixelChannelTotals = new int[3];
@@ -37,5 +39,7 @@ namespace DataVisulisation
             for (int i = 0; i < 3; i++) { if (PixelChannelTotals[i] > 255) { PixelChannelTotals[i] = 255; } }
             return Color.FromArgb(PixelChannelTotals[0], PixelChannelTotals[1], PixelChannelTotals[2]);
         }
+
+        #endregion Methods
     }
 }
