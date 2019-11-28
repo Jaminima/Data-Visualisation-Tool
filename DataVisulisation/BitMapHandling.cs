@@ -352,6 +352,11 @@ namespace DataVisulisation
             P.Y = Bmp.Height - 1 - P.Y;
         }
 
+        public static Point PointRelativeToOrigin(Bitmap Bmp, float x, float y)
+        {
+            return PointRelativeToOrigin(Bmp, (int)Math.Round(x, 0), (int)Math.Round(y, 0));
+        }
+
         public static Point PointRelativeToOrigin(Bitmap Bmp, int x, int y)
         {
             return new Point(x, Bmp.Height - 1 - y);
