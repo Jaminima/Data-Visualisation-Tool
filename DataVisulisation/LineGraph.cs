@@ -41,7 +41,12 @@ namespace DataVisulisation
                     BitMapHandling.PointRelativeToOrigin(Bmp, Padding / 2, Bmp.Height - Padding), Color.Gray, 3);
 
             if (xLabel != null)
-            { BitMapHandling.DrawText(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, Bmp.Width / 2, Padding / 2 - 5), xLabel, Color.Black, 2, 0); }
+            {
+                for (int x = 1; x < yValues.Length - 1; x += 5)
+                {
+                    BitMapHandling.DrawText(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, xStep * x + Padding, Padding / 2 - 5), xLabel, Color.Black, 2, 0);
+                }
+            }
 
             if (yLabel != null)
             { BitMapHandling.DrawText(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, Padding / 2, Bmp.Height - (Padding / 2)), yLabel, Color.Black, 2, 1); }
