@@ -8,24 +8,24 @@ namespace DataVisulisation
     {
         #region Methods
 
-        private static void DrawDataPoint(ref Bitmap Bmp, Point P1, int V1, Point P2, int V2, string T1, string T2, Color LineColor, int Thickness, int Padding, int FontSize, int Align)
+        private static void DrawDataPoint(ref Bitmap Bmp, Point P1, int V1, Point P2, int V2, string T1, string T2, string ValueStructure, Color LineColor, int Thickness, int Padding, int FontSize, int Align)
         {
             BitMapHandling.DrawLine(ref Bmp, P1, P2, LineColor, Thickness);
             if (T1 != null)
             {
                 BitMapHandling.DrawLine(ref Bmp, new Point(P1.X, 0), BitMapHandling.PointRelativeToOrigin(Bmp, P1.X, Padding / 2), Color.Gray);
                 BitMapHandling.DrawText(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, P1.X, Padding / 2 + (6 * FontSize)), T1, Color.Black, FontSize, Align);
-                BitMapHandling.DrawText(ref Bmp, new Point(P1.X, P1.Y - (6 * FontSize)), V1.ToString(), Color.Black, FontSize, 0);
+                BitMapHandling.DrawText(ref Bmp, new Point(P1.X, P1.Y - (6 * FontSize)), String.Format(ValueStructure, V1), Color.Black, FontSize, 0);
             }
             if (T2 != null)
             {
                 BitMapHandling.DrawLine(ref Bmp, new Point(P2.X, 0), BitMapHandling.PointRelativeToOrigin(Bmp, P2.X, Padding / 2), Color.Gray);
                 BitMapHandling.DrawText(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, P2.X, Padding / 2 + (6 * FontSize)), T2, Color.Black, FontSize, -1);
-                BitMapHandling.DrawText(ref Bmp, new Point(P2.X, P2.Y - (6 * FontSize)), V2.ToString(), Color.Black, FontSize, 0);
+                BitMapHandling.DrawText(ref Bmp, new Point(P2.X, P2.Y - (6 * FontSize)), String.Format(ValueStructure, V2), Color.Black, FontSize, 0);
             }
         }
 
-        public static void DrawLines(ref Bitmap Bmp, int[] yValues, Color LineColor, int Padding = 20, int Thickness = 2, string[] Labels = null, string xLabel = null, string yLabel = null, int FontSize = 1)
+        public static void DrawLines(ref Bitmap Bmp, int[] yValues, Color LineColor, string ValueStructure="{0}", int Padding = 20, int Thickness = 2, string[] Labels = null, string xLabel = null, string yLabel = null, int FontSize = 1)
         {
             if ((xLabel != null || yLabel != null) && Padding < 20) { Padding = 20; }
 
@@ -63,7 +63,7 @@ namespace DataVisulisation
                     T1 = Labels[i];
                     if (i == yValues.Length - 2) { T2 = Labels[i + 1]; }
                 }
-                DrawDataPoint(ref Bmp, P1, yValues[i], P2, yValues[i + 1], T1, T2, LineColor, Thickness, Padding, FontSize, Align);
+                DrawDataPoint(ref Bmp, P1, yValues[i], P2, yValues[i + 1], T1, T2, ValueStructure, LineColor, Thickness, Padding, FontSize, Align);
             }
         }
 

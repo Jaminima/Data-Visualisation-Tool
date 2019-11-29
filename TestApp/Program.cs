@@ -15,7 +15,7 @@ namespace TestApp
             //BitMapHandling.DrawLine(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, 300, 500), BitMapHandling.PointRelativeToOrigin(Bmp, 500, 350), Color.Red, 2);
             //BitMapHandling.DrawEquation(ref Bmp, BitMapHandling.PointRelativeToOrigin(Bmp, 10, 10), 500, Color.Blue, "500.0/((x/50)+1)");
 
-            LineGraph.DrawLines(ref Bmp, new int[] { 40, 20, 30, 5, 20, 200 }, Color.LightBlue, 30, 2, new string[] { "Steve", "Bob", "Garry", "Remansi", "Neha", "Dave" }, "Names", "Age", 2);
+            LineGraph.DrawLines(ref Bmp, new int[] { 40, 20, 30, 5, 20, 200 }, Color.LightBlue, "{0}", 30, 2, new string[] { "Steve", "Bob", "Garry", "Remansi", "Neha", "Dave" }, "Names", "Age", 2);
 
             //string Alpha = "0123456789";
             //BitMapHandling.DrawText(ref Bmp, new Point(10, 0), Alpha, Color.Black, 1);

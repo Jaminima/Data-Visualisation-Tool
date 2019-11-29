@@ -261,6 +261,13 @@ namespace DataVisulisation
                 { false, true, true, true, true },
                 { false, false, false, false, true },
                 { false, true, true, true, false }
+            }),
+            new Tuple<char, bool[,]> ('£',new bool[,]{
+                { false, false, true, true, false },
+                { false, true, false, false, true },
+                { true, true, true, true, false },
+                { false, true, false, false, false },
+                { true, true, true, true, true }
             })
         };
 
